@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "start:prod": "ts-node src/app.ts",
+    "start": "nodemon src/app.ts",
+    "lint": "tslint --project tsconfig.json"
+  },
+  "author": "Yunitsyn Nikita",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/pubsub": "^1.2.0",
+    "@types/mongoose": "^5.5.34",
+    "@types/node": "^12.12.21",
+    "axios": "^0.19.0",
+    "csv-parser": "^2.3.2",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.8.1",
+    "ts-node": "^8.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3"
+  }
+}

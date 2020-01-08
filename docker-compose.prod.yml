@@ -1,0 +1,40 @@
+version: '3'
+services:
+  frontend:
+    container_name: peakwork-front
+    restart: always
+    build:
+      context: front
+    ports:
+      - '8080:8080'
+  backend:
+    container_name: peakwork-backend
+    restart: always
+    build:
+      context: server
+    environment:
+      DB_CONN: [CONNECTION_STRING]
+      GOOGLE_APPLICATION_CREDENTIALS: [PATH_TO_CREDENTIALS_FILE]
+      NODE_ENV: production
+    ports:
+      - '5000:5000'
+    command: npm run start:prod
+    links:
+      - mongo
+  backend-logger:
+    container_name: peakwork-backend-logger
+    restart: always
+    build:
+      context: logger
+    environment:
+      DB_CONN: [CONNECTION_STRING]
+      GOOGLE_APPLICATION_CREDENTIALS: [PATH_TO_CREDENTIALS_FILE]
+      NODE_ENV: production
+    command: npm run start:prod
+    ports:
+      - '5050:5050'
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'

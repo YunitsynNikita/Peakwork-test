@@ -1,0 +1,10 @@
+.loader {
+  text-align: center;
+  animation: fadein 1.5s linear infinite;
+}
+
+@keyframes fadein {
+  50% {
+    opacity: 0;
+  }
+}

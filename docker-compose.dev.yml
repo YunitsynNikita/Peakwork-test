@@ -1,0 +1,34 @@
+version: '3'
+services:
+  frontend:
+    container_name: peakwork-front
+    restart: always
+    build:
+      context: front
+    ports:
+      - '8080:8080'
+  backend:
+    container_name: peakwork-backend
+    restart: always
+    build:
+      context: server
+    environment:
+      DB_CONN: mongodb+srv://Nikita:soad99@peakwork-ru7zp.mongodb.net/peakwork?retryWrites=true&w=majority
+      GOOGLE_APPLICATION_CREDENTIALS: ./Peakwork-test-2bbafdd9b4a4.json
+    ports:
+      - '5000:5000'
+    links:
+      - mongo
+  backend-logger:
+    container_name: peakwork-backend-logger
+    restart: always
+    build:
+      context: logger
+    environment:
+      DB_CONN: mongodb+srv://Nikita:soad99@peakwork-ru7zp.mongodb.net/peakwork?retryWrites=true&w=majority
+      GOOGLE_APPLICATION_CREDENTIALS: ./Peakwork-test-2bbafdd9b4a4.json
+    ports:
+      - '5050:5050'
+  mongo:
+    container_name: mongo
+    image: mongo

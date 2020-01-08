@@ -1,0 +1,15 @@
+.button {
+  &-add {
+    background-color: #77ca27;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 50px;
+
+    &:hover {
+      background-color: #6ab91f;
+    }
+  }
+}
