@@ -154,3 +154,11 @@ demo-server         LoadBalancer   10.31.255.163   35.242.200.521   5000:30177/T
 
 And now you can access your app by entering the http://35.242.200.521:5000 in
 your browser search line.
+
+### What needs to be done for production:
+
+1. API documentation.
+2. Implement tests for both sides (frontend/backend), unit + e2e (front).
+3. For the server side we shoud have static domain or IP or some sort of
+   gateway.
+4. Not dynamic styling for components in frontend.
